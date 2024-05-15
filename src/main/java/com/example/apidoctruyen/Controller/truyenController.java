@@ -17,6 +17,16 @@ public class truyenController {
         List<Truyen> listTruyen = repo.findAll();
         return listTruyen;
     }
+    @GetMapping("/truyen/toptruyenmoi")
+    public List<Truyen> getTopTruyenMoi() {
+        return repo.getTruyenMoi();
+    }
+
+    @GetMapping("/truyen/toptruyen")
+    public List<Truyen> getTopTruyen() {
+        return repo.getTopTruyen();
+    }
+
 
 
 }

@@ -43,10 +43,10 @@ public class Truyen {
     private String keySearch;
 
 
-    @OneToMany(mappedBy = "idtruyen")
-    private Set<Chapter> chapters = new LinkedHashSet<>();
+/*    @OneToMany(mappedBy = "idtruyen")
+    private Set<Chapter> chapters ;
 
     @OneToMany(mappedBy = "idtruyen")
-    private Set<Thongke> thongkes = new LinkedHashSet<>();
+    private Set<Thongke> thongkes ;*/
 
 }
