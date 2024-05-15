@@ -49,10 +49,10 @@ public class Truyen {
 //    @OneToMany(mappedBy = "truyen")
 //    private List<Thongke> thongkes;
 
-/*    @OneToMany(mappedBy = "idtruyen")
+    @OneToMany(mappedBy = "idtruyen")
     private Set<Chapter> chapters ;
 
     @OneToMany(mappedBy = "idtruyen")
-    private Set<Thongke> thongkes ;*/
+    private Set<Thongke> thongkes ;
 
 }
