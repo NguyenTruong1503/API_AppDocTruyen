@@ -1,6 +1,7 @@
 package com.example.apidoctruyen.Controller;
 
 import com.example.apidoctruyen.entity.Truyen;
+import com.example.apidoctruyen.model.TruyenInfo;
 import com.example.apidoctruyen.repository.truyenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,15 @@ public class truyenController {
         return repo.getTopTruyen();
     }
 
+    @GetMapping("/theloai")
+    public List<String> getAllTheLoai() {
+        return repo.findAllTheLoai();
+    }
 
+    @GetMapping("/truyennewest")
+    public List<TruyenInfo> getNewestTruyen() {
+        List<TruyenInfo>list = repo.findNewestBooks();
+        return list;
+    }
 
 }
