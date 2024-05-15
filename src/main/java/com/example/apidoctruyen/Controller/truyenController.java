@@ -15,12 +15,14 @@ import java.util.List;
 public class truyenController {
 
     @Autowired
-    TruyenRepository repo;
+    truyenRepository repo;
+
     @GetMapping("/truyen")
-    public List<Truyen> getAllTruyen(){
+    public List<Truyen> getAllTruyen() {
         List<Truyen> listTruyen = repo.findAll();
         return listTruyen;
     }
+
     @GetMapping("/truyen/toptruyenmoi")
     public List<Truyen> getTopTruyenMoi() {
         return repo.getTruyenMoi();
@@ -39,6 +41,7 @@ public class truyenController {
 
     @GetMapping("/truyennewest")
     public List<TruyenInfo> getNewestTruyen() {
-        List<TruyenInfo>list = repo.findNewestBooks();
+        List<TruyenInfo> list = repo.findNewestBooks();
         return list;
+    }
 }

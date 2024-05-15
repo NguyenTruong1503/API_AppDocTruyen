@@ -57,12 +57,10 @@
         @OneToMany(mappedBy = "idchapter")
         private Set<Noidungchapter> noidungchapters = new LinkedHashSet<>();
 
-<<<<<<< HEAD
+
     @ManyToOne
     @JoinColumn(name = "truyen_id")
     private Truyen truyen;
 
 }
-=======
-    }
->>>>>>> 8c03cfdd57716dddda6a8ba0e3ca48bfcc3ffcb3
+
