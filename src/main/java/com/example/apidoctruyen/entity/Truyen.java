@@ -49,10 +49,10 @@ public class Truyen {
 //    @OneToMany(mappedBy = "truyen")
 //    private List<Thongke> thongkes;
 
-    @OneToMany(mappedBy = "idtruyen")
-    private Set<Chapter> chapters = new LinkedHashSet<>();
+/*    @OneToMany(mappedBy = "idtruyen")
+    private Set<Chapter> chapters ;
 
     @OneToMany(mappedBy = "idtruyen")
-    private Set<Thongke> thongkes = new LinkedHashSet<>();
+    private Set<Thongke> thongkes ;*/
 
 }
