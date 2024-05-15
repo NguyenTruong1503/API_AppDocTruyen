@@ -57,4 +57,8 @@ public class Chapter {
     @OneToMany(mappedBy = "idchapter")
     private Set<Noidungchapter> noidungchapters = new LinkedHashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "truyen_id")
+    private Truyen truyen;
+
 }
