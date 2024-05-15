@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -42,6 +43,11 @@ public class Truyen {
     @Column(name = "key_search")
     private String keySearch;
 
+//    @OneToMany(mappedBy = "truyen")
+//    private List<Chapter> chapters;
+//
+//    @OneToMany(mappedBy = "truyen")
+//    private List<Thongke> thongkes;
 
     @OneToMany(mappedBy = "idtruyen")
     private Set<Chapter> chapters ;
