@@ -41,18 +41,13 @@ public class Truyen {
     private Integer trangthai;
 
     @Column(name = "key_search")
-    private String keySearch;
-
-//    @OneToMany(mappedBy = "truyen")
-//    private List<Chapter> chapters;
-//
-//    @OneToMany(mappedBy = "truyen")
-//    private List<Thongke> thongkes;
-
+    private String key_search;
     @OneToMany(mappedBy = "idtruyen")
     private Set<Chapter> chapters ;
 
     @OneToMany(mappedBy = "idtruyen")
     private Set<Thongke> thongkes ;
+
+
 
 }
