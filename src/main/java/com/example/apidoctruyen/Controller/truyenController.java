@@ -44,9 +44,44 @@ public class truyenController {
     }
 
 
-    @GetMapping("/truyennewest")
+    @GetMapping("/truyen/truyennewest")
     public List<TruyenInfo> getNewestTruyen() {
-        List<TruyenInfo> list = repo.findNewestBooks();
+        List<TruyenInfo> list = repo.findNewestComics();
         return list;
     }
+
+    // tôi muốn lấy truyennewest theo theloai
+    @GetMapping("/truyen/truyennewest/{theloai}")
+    public List<TruyenInfo> getNewestTruyenByTheLoai(@PathVariable String theloai) {
+        List<TruyenInfo> list = repo.findNewestComicsByTheLoai(theloai);
+        return list;
+    }
+
+    //findVotesComic
+    @GetMapping("/truyen/truyenvotes")
+    public List<TruyenInfo> getVotesTruyen() {
+        List<TruyenInfo> list = repo.findVotesComic();
+        return list;
+    }
+
+    // lay truyenvotes theo the loai
+    @GetMapping("/truyen/truyenvotes/{theloai}")
+    public List<TruyenInfo> getVotesTruyenByTheLoai(@PathVariable String theloai) {
+        List<TruyenInfo> list = repo.findVotesComicByTheLoai(theloai);
+        return list;
+    }
+
+    @GetMapping("/truyen/truyenview")
+    public List<TruyenInfo> getTruyenView() {
+        List<TruyenInfo> list = repo.findViewComic();
+        return list;
+    }
+
+    @GetMapping("/truyen/truyenview/{theloai}")
+    public List<TruyenInfo> getTruyenViewByTheLoai(@PathVariable String theloai) {
+        List<TruyenInfo> list = repo.findViewComicByTheLoai(theloai);
+        return list;
+    }
+
+
 }
