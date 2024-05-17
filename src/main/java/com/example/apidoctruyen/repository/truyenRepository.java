@@ -36,6 +36,46 @@ public interface truyenRepository extends JpaRepository<Truyen, Integer> {
             "JOIN t.thongkes tk\n" +
             "WHERE c.tenchapter = 'Chapter 1'\n" +
             "ORDER BY c.ngaydang DESC")
-    List<TruyenInfo> findNewestBooks();
+    List<TruyenInfo> findNewestComics();
+
+    @Query("SELECT NEW com.example.apidoctruyen.model.TruyenInfo (t.id, tk.tongluotxem, tk.sosaotb, t.tentruyen, c.ngaydang, t.theloai, t.linkanh)\n" +
+            "FROM Truyen t\n" +
+            "JOIN t.chapters c\n" +
+            "JOIN t.thongkes tk\n" +
+            "WHERE c.tenchapter = 'Chapter 1' AND t.theloai = :theloai\n" +
+            "ORDER BY c.ngaydang DESC")
+    List<TruyenInfo> findNewestComicsByTheLoai(String theloai);
+
+    @Query("SELECT NEW com.example.apidoctruyen.model.TruyenInfo (t.id, tk.tongluotxem, tk.sosaotb, t.tentruyen, c.ngaydang, t.theloai, t.linkanh)\n" +
+            "FROM Truyen t\n" +
+            "JOIN t.chapters c\n" +
+            "JOIN t.thongkes tk\n" +
+            "WHERE c.tenchapter = 'Chapter 1'\n" +
+            "ORDER BY tk.sosaotb DESC, c.ngaydang DESC")
+    List<TruyenInfo> findVotesComic();
+
+    @Query("SELECT NEW com.example.apidoctruyen.model.TruyenInfo (t.id, tk.tongluotxem, tk.sosaotb, t.tentruyen, c.ngaydang, t.theloai, t.linkanh)\n" +
+            "FROM Truyen t\n" +
+            "JOIN t.chapters c\n" +
+            "JOIN t.thongkes tk\n" +
+            "WHERE c.tenchapter = 'Chapter 1' AND t.theloai = :theloai\n" +
+            "ORDER BY tk.sosaotb DESC, c.ngaydang DESC")
+    List<TruyenInfo> findVotesComicByTheLoai(String theloai);
+
+    @Query("SELECT NEW com.example.apidoctruyen.model.TruyenInfo (t.id, tk.tongluotxem, tk.sosaotb, t.tentruyen, c.ngaydang, t.theloai, t.linkanh)\n" +
+            "FROM Truyen t\n" +
+            "JOIN t.chapters c\n" +
+            "JOIN t.thongkes tk\n" +
+            "WHERE c.tenchapter = 'Chapter 1'\n" +
+            "ORDER BY tk.tongluotxem DESC, c.ngaydang DESC")
+    List<TruyenInfo> findViewComic();
+
+    @Query("SELECT NEW com.example.apidoctruyen.model.TruyenInfo (t.id, tk.tongluotxem, tk.sosaotb, t.tentruyen, c.ngaydang, t.theloai, t.linkanh)\n" +
+            "FROM Truyen t\n" +
+            "JOIN t.chapters c\n" +
+            "JOIN t.thongkes tk\n" +
+            "WHERE c.tenchapter = 'Chapter 1' AND t.theloai = :theloai\n" +
+            "ORDER BY tk.tongluotxem DESC, c.ngaydang DESC")
+    List<TruyenInfo> findViewComicByTheLoai(String theloai);
 
 }
