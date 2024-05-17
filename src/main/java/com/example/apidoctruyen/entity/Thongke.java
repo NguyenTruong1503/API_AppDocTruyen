@@ -27,9 +27,7 @@ public class Thongke {
     @Column(name = "sosaotb", nullable = false)
     private Double sosaotb;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "idtruyen")
-//    private Truyen truyen;
+
 
 
 }
