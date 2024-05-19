@@ -1,5 +1,5 @@
 package com.example.apidoctruyen.repository;
-
+import com.example.apidoctruyen.entity.Noidungchapter;
 import com.example.apidoctruyen.entity.Taikhoan;
 import com.example.apidoctruyen.model.TaiKhoanDto;
 import com.example.apidoctruyen.model.TruyenDto;
@@ -17,4 +17,5 @@ public interface TaiKhoanRepository extends JpaRepository<Taikhoan, Integer> {
 
     @Query("select NEW com.example.apidoctruyen.model.TaiKhoanDto(tk.id,tk.email,tk.hoten,tk.dienthoai,tk.diemthuong) from Taikhoan tk where tk.email = :email")
     public Optional<TaiKhoanDto> findByEmail(@Param("email") String email);
+
 }
