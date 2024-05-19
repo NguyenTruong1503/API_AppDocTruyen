@@ -2,7 +2,9 @@ package com.example.apidoctruyen.repository;
 
 import com.example.apidoctruyen.entity.Lichsudoctruyen;
 import com.example.apidoctruyen.entity.Truyen;
+
 import com.example.apidoctruyen.model.TimkiemModel;
+
 import com.example.apidoctruyen.model.TruyenDto;
 import com.example.apidoctruyen.model.TruyenInfo;
 import org.springframework.data.domain.Pageable;
@@ -48,6 +50,7 @@ public interface truyenRepository extends JpaRepository<Truyen, Integer> {
             "JOIN t.thongkes tk\n" +
             "WHERE c.tenchapter = 'Chapter 1'\n" +
             "ORDER BY c.ngaydang DESC")
+
     List<TruyenInfo> findNewestBooks();
 
 
