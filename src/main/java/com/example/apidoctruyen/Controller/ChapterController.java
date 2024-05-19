@@ -1,21 +1,43 @@
 package com.example.apidoctruyen.Controller;
 
 import com.example.apidoctruyen.entity.Chapter;
-import com.example.apidoctruyen.model.BinhLuanTruyenDto;
 import com.example.apidoctruyen.model.ChapterDto;
-import com.example.apidoctruyen.repository.BinhLuanRepository;
+import com.example.apidoctruyen.model.ChapterModel;
 import com.example.apidoctruyen.repository.ChapterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 public class ChapterController {
+
+    @Autowired
+    ChapterRepository chapterRepository;
+
+    @GetMapping("/truyen/chapter/getone/{idchapter}")
+    public List<ChapterModel> getOneChapter(@PathVariable int idchapter) {
+        List<ChapterModel> listChapter = chapterRepository.getOneChapter(idchapter);
+        return listChapter;
+    }
+    @GetMapping("/truyen/chapter/tenchapter/{idtruyen}")
+    public String getTenChapterNew(@PathVariable int idtruyen) {
+        String tenChapter = chapterRepository.getTenChapterNew(idtruyen);
+        return tenChapter;
+    }
+    @GetMapping("/truyen/chapter/{id}")
+    public List<ChapterModel> getChapterById(@PathVariable Integer id) {
+        //Truyen truyen = repo.findById(id);
+        List<ChapterModel> list = chapterRepository.getChapterById(id);
+        return list;
+    }
+
+    @GetMapping("/truyen/chapter/getidtruyen/{id}")
+    public int getIdTruyenByIdChapter(@PathVariable Integer id) {
+        int idtruyen = chapterRepository.getIdTruyenByIdChapter(id);
+        return idtruyen;
+    }
     @Autowired
     ChapterRepository repo;
     @GetMapping("/truyen/gettongluotxem/{id}")

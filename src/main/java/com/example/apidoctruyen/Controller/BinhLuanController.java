@@ -1,11 +1,6 @@
 package com.example.apidoctruyen.Controller;
-import com.example.apidoctruyen.entity.Binhluan;
-import com.example.apidoctruyen.entity.Chapter;
-import com.example.apidoctruyen.entity.Taikhoan;
 import com.example.apidoctruyen.model.BinhLuanDto;
 import com.example.apidoctruyen.model.BinhLuanTruyenDto;
-import com.example.apidoctruyen.model.TruyenDto;
-import com.example.apidoctruyen.model.TruyenInfo;
 
 import com.example.apidoctruyen.repository.BinhLuanRepository;
 
@@ -13,14 +8,10 @@ import com.example.apidoctruyen.repository.BinhLuanRepository;
 import com.example.apidoctruyen.repository.ChapterRepository;
 import com.example.apidoctruyen.repository.TaiKhoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
