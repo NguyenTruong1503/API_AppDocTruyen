@@ -1,6 +1,7 @@
 package com.example.apidoctruyen.Controller;
 
 import com.example.apidoctruyen.entity.Truyen;
+import com.example.apidoctruyen.model.TimkiemModel;
 import com.example.apidoctruyen.model.TruyenDto;
 import com.example.apidoctruyen.model.TruyenInfo;
 
@@ -82,6 +83,18 @@ public class truyenController {
         List<TruyenInfo> list = repo.findViewComicByTheLoai(theloai);
         return list;
     }
+
+    @GetMapping("/truyen/getone/{idchapter}")
+    public List<TruyenDto> getOneTruyen(@PathVariable int idchapter) {
+        List<TruyenDto> list = repo.getOneTruyen(idchapter);
+        return list;
+    }
+
+    @GetMapping("/search")
+    public List<TimkiemModel> findTruyenBySearchText(@RequestParam("textsearch") String textsearch){
+        return repo.getListTimKiem(textsearch);
+    }
+
 
 
 }
