@@ -1,6 +1,8 @@
 package com.example.apidoctruyen.repository;
 
 import com.example.apidoctruyen.entity.Noidungchapter;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.apidoctruyen.entity.Truyen;
 import com.example.apidoctruyen.model.ChapterDto;
 import com.example.apidoctruyen.model.NoiDungChapterDto;
@@ -14,4 +16,5 @@ public interface NoiDungChapterRepository extends JpaRepository<Noidungchapter, 
             "FROM Noidungchapter t \n" +
             "WHERE t.idchapter.id = :id")
     List<NoiDungChapterDto> getNoidungchapterById( int id);
+
 }

@@ -20,7 +20,13 @@ public class Noidungchapter {
     @JoinColumn(name = "idchapter")
     private Chapter idchapter;
 
+
+    @NotNull
+    //@Lob
+    @Column(name = "linkanh", nullable = false)
+
     @Column(name = "linkanh")
+
     private String linkanh;
 
     public Noidungchapter(Integer id, Chapter idchapter, String linkanh) {

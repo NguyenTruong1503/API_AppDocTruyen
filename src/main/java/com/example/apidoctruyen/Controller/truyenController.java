@@ -1,7 +1,12 @@
 package com.example.apidoctruyen.Controller;
 
+import com.example.apidoctruyen.entity.Chapter;
 import com.example.apidoctruyen.entity.Truyen;
+
+import com.example.apidoctruyen.model.ChapterDto;
+
 import com.example.apidoctruyen.model.TimkiemModel;
+
 import com.example.apidoctruyen.model.TruyenDto;
 import com.example.apidoctruyen.model.TruyenInfo;
 
@@ -51,7 +56,6 @@ public class truyenController {
         return list;
     }
 
-    // tôi muốn lấy truyennewest theo theloai
     @GetMapping("/truyen/truyennewest/{theloai}")
     public List<TruyenInfo> getNewestTruyenByTheLoai(@PathVariable String theloai) {
         List<TruyenInfo> list = repo.findNewestComicsByTheLoai(theloai);
@@ -65,7 +69,6 @@ public class truyenController {
         return list;
     }
 
-    // lay truyenvotes theo the loai
     @GetMapping("/truyen/truyenvotes/{theloai}")
     public List<TruyenInfo> getVotesTruyenByTheLoai(@PathVariable String theloai) {
         List<TruyenInfo> list = repo.findVotesComicByTheLoai(theloai);
@@ -101,5 +104,34 @@ public class truyenController {
     }
 
 
+    @GetMapping("/truyen/tentruyen")
+    public List<String> getTenTruyen() {
+        return repo.getTenTruyen();
+    }
+
+    @PostMapping("/truyen")
+    public Truyen addTruyen(@RequestBody Truyen truyen) {
+        return repo.save(truyen);
+    }
+
+    // tìm truyện theo id
+    @GetMapping("/truyen/{id}")
+    public List<TruyenDto> getAllTruyenById(@PathVariable Integer id) {
+        List<TruyenDto> list = repo.getAllTruyenById(id);
+        return list;
+    }
+
+    // cập nhâật truyện theo id
+    @PutMapping("/truyen/{id}")
+    public Truyen updateTruyen(@RequestBody Truyen truyen, @PathVariable Integer id) {
+        Truyen truyen1 = repo.findById(id).orElse(null);
+        truyen1.setTentruyen(truyen.getTentruyen());
+        truyen1.setTacgia(truyen.getTacgia());
+        truyen1.setMota(truyen.getMota());
+        truyen1.setTheloai(truyen.getTheloai());
+        truyen1.setLinkanh(truyen.getLinkanh());
+        truyen1.setKey_search(truyen.getKey_search());
+        return repo.save(truyen1);
+    }
 
 }
