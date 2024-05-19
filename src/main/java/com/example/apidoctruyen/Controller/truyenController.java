@@ -82,6 +82,11 @@ public class truyenController {
         List<TruyenInfo> list = repo.findViewComicByTheLoai(theloai);
         return list;
     }
+    @GetMapping("/truyen/gettruyen/{id}")
+    public List<TruyenDto> getTruyenById(@PathVariable int id) {
+        List<TruyenDto> list = repo.getTruyenBy(id);
+        return list;
+    }
 
 
 }
