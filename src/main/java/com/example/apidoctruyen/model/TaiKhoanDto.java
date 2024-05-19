@@ -18,7 +18,9 @@ import java.util.Set;
 public class TaiKhoanDto {
     private Integer id;
     private String email;
+    private String matkhau;
     private String hoten;
     private String dienthoai;
     private Integer diemthuong;
+    private Integer loaitk;
 }
