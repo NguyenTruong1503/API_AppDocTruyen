@@ -20,7 +20,7 @@ public class Noidungchapter {
     private Chapter idchapter;
 
     @NotNull
-    @Lob
+    //@Lob
     @Column(name = "linkanh", nullable = false)
     private String linkanh;
 

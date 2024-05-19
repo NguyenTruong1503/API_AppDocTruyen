@@ -47,7 +47,7 @@ public class Taikhoan {
     @Column(name = "loaitk", nullable = false)
     private Integer loaitk;
 
-    @Lob
+
     @Column(name = "linkanh")
     private String linkanh;
 
