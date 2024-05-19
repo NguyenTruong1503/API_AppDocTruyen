@@ -88,9 +88,11 @@ public interface truyenRepository extends JpaRepository<Truyen, Integer> {
             "ORDER BY tk.tongluotxem DESC, c.ngaydang DESC")
     List<TruyenInfo> findViewComicByTheLoai(String theloai);
 
+
     @Query("SELECT NEW com.example.apidoctruyen.model.TruyenDto (t.id, t.tentruyen, t.tacgia, t.mota, t.theloai, t.linkanh, t.trangthai, t.key_search)\n" +
             "FROM Truyen t\n" +
             " where t.id = :id" )
     List<TruyenDto> getTruyenBy(int id);
+
 
 }
