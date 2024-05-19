@@ -5,6 +5,7 @@ import com.example.apidoctruyen.entity.Chapter;
 import com.example.apidoctruyen.entity.Noidungchapter;
 import com.example.apidoctruyen.entity.Truyen;
 import com.example.apidoctruyen.model.ChapterDto;
+import com.example.apidoctruyen.model.ChapterModel;
 import com.example.apidoctruyen.model.NoiDungChapterDto;
 import com.example.apidoctruyen.repository.ChapterRepository;
 import com.example.apidoctruyen.repository.NoiDungChapterRepository;
@@ -17,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 public class ChapterController {
@@ -30,7 +32,7 @@ public class ChapterController {
     @GetMapping("/truyen/chapter/{id}")
     public List<ChapterDto> getChapterById(@PathVariable Integer id) {
         //Truyen truyen = repo.findById(id);
-        List<ChapterDto> list = chapterRepository.getChapterById(id);
+        List<ChapterDto> list = chapterRepository.getChapterByIdTruyen(id);
         return list;
     }
 
@@ -76,6 +78,7 @@ public class ChapterController {
         noidungchapter.setIdchapter(chapter);
         noidungchapter.setLinkanh((String) payload.get("linkanh"));
         return noiDungChapterRepository.save(noidungchapter);
+    }
 
 
     @GetMapping("/truyen/chapter/getone/{idchapter}")
@@ -88,8 +91,8 @@ public class ChapterController {
         String tenChapter = chapterRepository.getTenChapterNew(idtruyen);
         return tenChapter;
     }
-    @GetMapping("/truyen/chapter/{id}")
-    public List<ChapterModel> getChapterById(@PathVariable Integer id) {
+    @GetMapping("/truyen/chapter1/{id}")
+    public List<ChapterModel> getChapterById1(@PathVariable Integer id) {
         //Truyen truyen = repo.findById(id);
         List<ChapterModel> list = chapterRepository.getChapterById(id);
         return list;
@@ -101,33 +104,33 @@ public class ChapterController {
         return idtruyen;
     }
     @Autowired
-    ChapterRepository repo;
+    ChapterRepository repo1;
     @GetMapping("/truyen/gettongluotxem/{id}")
     public Long getBinhLuan(@PathVariable int id) {
-        return repo.sumSoluotxemByTruyenId(id);
+        return repo1.sumSoluotxemByTruyenId(id);
     }
     @GetMapping("/truyen/getchapterbyidtruyen/{id}")
     public List<ChapterDto> getChapterByIdTruyen(@PathVariable int id){
-        return repo.getChapterByIdTruyen(id);
+        return repo1.getChapterByIdTruyen(id);
     }
     @GetMapping("/truyen/gettenchapter/{id}")
     public List<ChapterDto> findTenById(@PathVariable int id) {
-        return repo.findTenById(id);
+        return repo1.findTenById(id);
     }
     @PutMapping("/updateLuotXem/{id}")
     public Chapter updateLuotXemChapter(@PathVariable int id) {
-        Optional<Chapter> optionalChapter = repo.findById(id);
+        Optional<Chapter> optionalChapter = repo1.findById(id);
         Chapter chapter = optionalChapter.get();
         chapter.setSoluotxem(chapter.getSoluotxem() + 1);
-        return repo.save(chapter);
+        return repo1.save(chapter);
     }
     @GetMapping("/truyen/getminidchapter/{id}")
     public int getMinIdChapter(@PathVariable int id) {
-        return repo.getMinIdChapter(id);
+        return repo1.getMinIdChapter(id);
     }
     @GetMapping("/truyen/getmaxidchapter/{id}")
     public int getMaxIdChapter(@PathVariable int id) {
-        return repo.getMaxIdChapter(id);
+        return repo1.getMaxIdChapter(id);
     }
 
 }

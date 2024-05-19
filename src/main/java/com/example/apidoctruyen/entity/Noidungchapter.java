@@ -23,7 +23,7 @@ public class Noidungchapter {
 
     @NotNull
     //@Lob
-    @Column(name = "linkanh", nullable = false)
+
 
     @Column(name = "linkanh")
 

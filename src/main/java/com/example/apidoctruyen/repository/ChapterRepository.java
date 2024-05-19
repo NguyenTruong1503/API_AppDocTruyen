@@ -17,7 +17,7 @@ public interface ChapterRepository extends JpaRepository<Chapter,Integer> {
     @Query("SELECT NEW com.example.apidoctruyen.model.ChapterDto (c.id,c.idtruyen.id, c.tenchapter, c.ngaydang, c.soluotxem, c.danhgia)\n" +
             "FROM Chapter c\n" +
             "WHERE c.idtruyen.id = :id")
-    List<ChapterDto> getChapterById(int id);
+    List<ChapterDto> getChapterByIdTruyen(int id);
 
 
     @Query("SELECT NEW com.example.apidoctruyen.model.ChapterDto (c.id,c.idtruyen.id, c.tenchapter, c.ngaydang, c.soluotxem, c.danhgia)\n" +
@@ -37,6 +37,7 @@ public interface ChapterRepository extends JpaRepository<Chapter,Integer> {
             "FROM Chapter c\n" +
             "WHERE c.id=:idchapter")
     List<ChapterModel> getOneChapter(int idchapter);
+
     @Query("SELECT NEW com.example.apidoctruyen.model.ChapterModel (c.id, c.idtruyen.id, c.soluotxem,c.danhgia,c.tenchapter,c.ngaydang)\n" +
             "FROM Chapter c\n" +
             "WHERE c.idtruyen.id = :id")
@@ -58,7 +59,7 @@ public interface ChapterRepository extends JpaRepository<Chapter,Integer> {
     @Query("SELECT NEW com.example.apidoctruyen.model.ChapterDto (t.id, t.idtruyen.id, t.tenchapter, t.ngaydang, t.soluotxem, t.danhgia)\n" +
             "FROM Chapter t\n" +
             " where t.idtruyen.id = :id" )
-    List<ChapterDto> getChapterByIdTruyen(int id);
+    List<ChapterDto> getChapterByIdT(int id);
     @Query("SELECT NEW com.example.apidoctruyen.model.ChapterDto (t.id, t.idtruyen.id, t.tenchapter, t.ngaydang, t.soluotxem, t.danhgia)\n FROM Chapter t WHERE t.id = :id")
     List<ChapterDto> findTenById(int id);
 
