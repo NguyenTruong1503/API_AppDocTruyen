@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Nationalized;
 
 @Getter
 @Setter
@@ -19,9 +20,22 @@ public class Noidungchapter {
     @JoinColumn(name = "idchapter")
     private Chapter idchapter;
 
+
     @NotNull
     //@Lob
     @Column(name = "linkanh", nullable = false)
+
+    @Column(name = "linkanh")
+
     private String linkanh;
 
+    public Noidungchapter(Integer id, Chapter idchapter, String linkanh) {
+        this.id = id;
+        this.idchapter = idchapter;
+        this.linkanh = linkanh;
+    }
+
+    public Noidungchapter() {
+
+    }
 }
