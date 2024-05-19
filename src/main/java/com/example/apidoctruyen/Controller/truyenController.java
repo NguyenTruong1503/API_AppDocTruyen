@@ -1,6 +1,7 @@
 package com.example.apidoctruyen.Controller;
 
 import com.example.apidoctruyen.entity.Chapter;
+import com.example.apidoctruyen.entity.Taikhoan;
 import com.example.apidoctruyen.entity.Truyen;
 
 import com.example.apidoctruyen.model.ChapterDto;
@@ -133,5 +134,4 @@ public class truyenController {
         truyen1.setKey_search(truyen.getKey_search());
         return repo.save(truyen1);
     }
-
 }
