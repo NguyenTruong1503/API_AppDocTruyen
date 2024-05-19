@@ -57,6 +57,7 @@ public interface truyenRepository extends JpaRepository<Truyen, Integer> {
 
     @Query("SELECT NEW com.example.apidoctruyen.model.TruyenInfo (t.id, tk.tongluotxem, tk.sosaotb, t.tentruyen, c.ngaydang, t.theloai, t.linkanh)\n" +
             "FROM Truyen t\n" +
+
             "JOIN t.chapters c\n" +
             "JOIN t.thongkes tk\n" +
             "WHERE c.tenchapter = 'Chapter 1'\n" +
@@ -86,6 +87,12 @@ public interface truyenRepository extends JpaRepository<Truyen, Integer> {
             "WHERE c.tenchapter = 'Chapter 1' AND t.theloai = :theloai\n" +
             "ORDER BY tk.tongluotxem DESC, c.ngaydang DESC")
     List<TruyenInfo> findViewComicByTheLoai(String theloai);
+
+
+    @Query("SELECT NEW com.example.apidoctruyen.model.TruyenDto (t.id, t.tentruyen, t.tacgia, t.mota, t.theloai, t.linkanh, t.trangthai, t.key_search)\n" +
+            "FROM Truyen t\n" +
+            " where t.id = :id" )
+    List<TruyenDto> getTruyenBy(int id);
 
 
 }

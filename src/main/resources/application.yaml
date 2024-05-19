@@ -4,7 +4,8 @@ server:
 
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost:1433;database=XemTruyen
+
+    url: jdbc:sqlserver://localhost\.:1433;database=XemTruyen
     driverClassName: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     username: sa
     password: 1510
