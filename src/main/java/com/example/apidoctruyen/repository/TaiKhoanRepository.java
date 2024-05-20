@@ -32,8 +32,6 @@ public interface TaiKhoanRepository extends JpaRepository<Taikhoan, Integer> {
     public List<TaiKhoanDto> findByLoaiTk();
 
     //"select * from taikhoan where email=?
-    @Query("select NEW com.example.apidoctruyen.model.TaiKhoanDto(tk.id,tk.email,tk.matkhau,tk.hoten,tk.dienthoai,tk.diemthuong,tk.loaitk) from Taikhoan tk where tk.email = :email")
-    public List<TaiKhoanDto> getByEmail(@Param("email") String email);
 
     //public Boolean insertNewTaiKhoan(String email,String matkhau,String ten, String dienthoai){
     //        SQLiteDatabase db = this.getWritableDatabase();

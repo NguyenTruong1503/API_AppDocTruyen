@@ -37,10 +37,6 @@ public class TaiKhoanController {
     }
 
     // lay taikhoan theo email
-    @GetMapping("/timtaikhoan/{email}")
-    public List<TaiKhoanDto> getTaiKhoanByEmail(@PathVariable String email) {
-        return taiKhoanRepository.getByEmail(email);
-    }
 
     // cap nhat loaitk kiểu int theo id
     @PutMapping ("/taikhoan/{id}/{loaitk}")
