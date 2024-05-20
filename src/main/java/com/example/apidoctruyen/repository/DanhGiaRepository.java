@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,11 @@ public interface DanhGiaRepository extends JpaRepository<Danhgia, Integer> {
 
     @Query("SELECT d FROM Danhgia d WHERE d.idchapter.id = :idchapter AND d.idtaikhoan.id = :idtaikhoan")
     Danhgia findByIdchapterAndIdtaikhoan(Integer idchapter, Integer idtaikhoan);
+    @Query(value = "INSERT INTO Danhgia (idchapter, idtaikhoan, sosao, ngaydanhgia) " +
+            "VALUES (:idchapter, :idtaikhoan, :sosao, :ngaydanhgia); " +
+            "SELECT SCOPE_IDENTITY()",
+            nativeQuery = true)
+    Integer addDanhGia(Integer idchapter, Integer idtaikhoan,Double sosao, LocalDate ngaydanhgia);
 
 
 }
