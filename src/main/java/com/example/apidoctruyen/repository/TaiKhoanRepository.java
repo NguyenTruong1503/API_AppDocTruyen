@@ -21,8 +21,8 @@ public interface TaiKhoanRepository extends JpaRepository<Taikhoan, Integer> {
     TaiKhoanDto findByEmail(@Param("email") String email);*/
     @Query("select tk.id from Taikhoan tk where tk.email = :email")
     public int findIDTaiKhoanByEmail( String email);
-//    @Query("select NEW com.example.apidoctruyen.model.TaiKhoanDto(tk.id,tk.email,tk.matkhau,tk.hoten,tk.dienthoai,tk.diemthuong,tk.loaitk) from Taikhoan tk where tk.email = :email")
-//    public List<TaiKhoanDto> getByEmail(@Param("email") String email);
+    @Query("select NEW com.example.apidoctruyen.model.TaiKhoanDto(tk.id,tk.email,tk.matkhau,tk.hoten,tk.dienthoai,tk.diemthuong,tk.loaitk) from Taikhoan tk where tk.email = :email")
+    public List<TaiKhoanDto> getByEmail(@Param("email") String email);
 
     @Query("select NEW com.example.apidoctruyen.model.TaiKhoanDto(tk.id,tk.email,tk.hoten,tk.dienthoai,tk.diemthuong) from Taikhoan tk where tk.email = :email")
     public Optional<TaiKhoanDto> findByEmail(@Param("email") String email);
