@@ -27,7 +27,7 @@ public interface DanhGiaRepository extends JpaRepository<Danhgia, Integer> {
     int updateDanhGia(@Param("idchapter") int idchapter, @Param("idtaikhoan") int idtaikhoan, @Param("sosao") double sosao);
     @Query("SELECT round(avg(d.sosao), 2) FROM Danhgia d WHERE d.idchapter.id = : idchapter")
     Double getAverageRatingByIdChapter(Integer idchapter);
-    Optional<Danhgia> findByIdChapterAndIdTaiKhoan(Integer idChapter, Integer idTaiKhoan);
+    //Optional<Danhgia> findByIdChapterAndIdTaiKhoan(Integer idChapter, Integer idTaiKhoan);
 
 
     // updateDanhGia
