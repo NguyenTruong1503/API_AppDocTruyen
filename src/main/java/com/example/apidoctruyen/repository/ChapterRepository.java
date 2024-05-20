@@ -33,10 +33,10 @@ public interface ChapterRepository extends JpaRepository<Chapter,Integer> {
 
 
 
-    @Query("SELECT NEW com.example.apidoctruyen.model.ChapterModel(c.id, c.idtruyen.id, c.soluotxem,c.danhgia,c.tenchapter,c.ngaydang)\n" +
+    @Query("SELECT NEW com.example.apidoctruyen.model.ChapterDto(c.id, c.idtruyen.id, c.tenchapter,c.ngaydang, c.soluotxem, c.danhgia)\n" +
             "FROM Chapter c\n" +
             "WHERE c.id=:idchapter")
-    List<ChapterModel> getOneChapter(int idchapter);
+    ChapterDto getOneChapter(int idchapter);
 
     @Query("SELECT NEW com.example.apidoctruyen.model.ChapterModel (c.id, c.idtruyen.id, c.soluotxem,c.danhgia,c.tenchapter,c.ngaydang)\n" +
             "FROM Chapter c\n" +

@@ -113,7 +113,7 @@ public interface truyenRepository extends JpaRepository<Truyen, Integer> {
 
             "JOIN t.chapters c\n" +
             "WHERE c.id = :idchapter")
-    List<TruyenDto> getOneTruyen(int idchapter);
+    TruyenDto getOneTruyen(int idchapter);
 
     @Query("SELECT new com.example.apidoctruyen.model.TimkiemModel(t.id, tk.tongluotxem, c.id, tk.sosaotb, t.tentruyen, t.theloai, t.linkanh) \n" +
             "FROM Truyen t \n" +

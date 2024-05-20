@@ -95,8 +95,8 @@ public class truyenController {
     }
 
     @GetMapping("/truyen/getone/{idchapter}")
-    public List<TruyenDto> getOneTruyen(@PathVariable int idchapter) {
-        List<TruyenDto> list = repo.getOneTruyen(idchapter);
+    public TruyenDto getOneTruyen(@PathVariable int idchapter) {
+        TruyenDto list = repo.getOneTruyen(idchapter);
         return list;
     }
 
