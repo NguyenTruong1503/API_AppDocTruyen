@@ -83,4 +83,24 @@ public class TaiKhoanController {
         return taiKhoanRepository.save(taikhoan1);
     }
 
+    //createTaiKhoan voi email, matkhau
+//    @PostMapping("/taikhoan/{email}/{matkhau}")
+//    public Taikhoan createTaiKhoan(@PathVariable String email, @PathVariable String matkhau){
+//        Taikhoan taikhoan = new Taikhoan();
+//        taikhoan.setEmail(email);
+//        taikhoan.setMatkhau(matkhau);
+//        return taiKhoanRepository.save(taikhoan);
+//    }
+
+    //@PostMapping("/truyen")
+    //    public Truyen addTruyen(@RequestBody Truyen truyen) {
+    //        return repo.save(truyen);
+    //    }
+//    @PostMapping("/taikhoan")
+//    public Taikhoan createTaiKhoan(@RequestBody Taikhoan taikhoan){
+//
+//        return taiKhoanRepository.save(taikhoan);
+//    }
+
+
 }
