@@ -6,12 +6,12 @@ spring:
   datasource:
 
 
-    url: jdbc:sqlserver://localhost\.:1433;database=XemTruyen2
+    url: jdbc:sqlserver://localhost:1433;database=XemTruyen
 
 
     driverClassName: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     username: sa
-    password: 123456789
+    password: 1510
   jpa:
     hibernate:
       ddl-auto: update

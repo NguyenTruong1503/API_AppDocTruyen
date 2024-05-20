@@ -82,8 +82,8 @@ public class ChapterController {
 
 
     @GetMapping("/truyen/chapter/getone/{idchapter}")
-    public List<ChapterModel> getOneChapter(@PathVariable int idchapter) {
-        List<ChapterModel> listChapter = chapterRepository.getOneChapter(idchapter);
+    public ChapterDto getOneChapter(@PathVariable int idchapter) {
+        ChapterDto listChapter = chapterRepository.getOneChapter(idchapter);
         return listChapter;
     }
     @GetMapping("/truyen/chapter/tenchapter/{idtruyen}")
