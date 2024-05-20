@@ -4,17 +4,16 @@ package com.example.apidoctruyen.Controller;
 import com.example.apidoctruyen.entity.Chapter;
 
 import com.example.apidoctruyen.entity.Danhgia;
+import com.example.apidoctruyen.model.DanhGiaDto;
 import com.example.apidoctruyen.model.TruyenDto;
 import com.example.apidoctruyen.repository.BinhLuanRepository;
 import com.example.apidoctruyen.repository.DanhGiaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,5 +45,27 @@ public class DanhGiaController {
             repo.save(danhgia);
 
         }
+    }
+    @PostMapping("/adddanhgia")
+    public ResponseEntity<DanhGiaDto> adgetidbychapterandtkdBinhLuan(@RequestBody DanhGiaDto binhLuanDto) {
+
+
+        // Insert using custom query
+        Integer newId = repo.addDanhGia(
+                binhLuanDto.getIdchapter(),
+                binhLuanDto.getIdtaikhoan(),
+                binhLuanDto.getSosao(),
+                LocalDate.now()
+        );
+
+        // Prepare response DTO
+        DanhGiaDto responseDto = new DanhGiaDto();
+        responseDto.setId(newId);
+        responseDto.setIdchapter(binhLuanDto.getIdchapter());
+        responseDto.setIdtaikhoan(binhLuanDto.getIdtaikhoan());
+        responseDto.setSosao(binhLuanDto.getSosao());
+        responseDto.setNgaydanhgia(String.valueOf(LocalDate.now()));
+
+        return ResponseEntity.ok(responseDto);
     }
 }
