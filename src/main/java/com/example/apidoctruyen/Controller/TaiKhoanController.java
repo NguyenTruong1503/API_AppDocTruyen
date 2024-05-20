@@ -15,6 +15,17 @@ public class TaiKhoanController {
     @Autowired
     TaiKhoanRepository taiKhoanRepository;
 
+
+
+    @GetMapping("/timtaikhoan/{email}")
+    public List<TaiKhoanDto> getTaiKhoanByEmail(@PathVariable String email) {
+        return taiKhoanRepository.getByEmail(email);
+    }
+    @GetMapping("/findidtaikhoan/{email}")
+    public int findIDTaiKhoanByEmail(@PathVariable String email){
+        return taiKhoanRepository.findIDTaiKhoanByEmail(email);
+    }
+
     @GetMapping("/taikhoan/{email}")
     public Optional<TaiKhoanDto> findByEmail(@PathVariable String email){
         return taiKhoanRepository.findByEmail(email);
@@ -75,4 +86,5 @@ public class TaiKhoanController {
         //taikhoan1.setLoaitk(taikhoan.getLoaitk());
         return taiKhoanRepository.save(taikhoan1);
     }
+
 }

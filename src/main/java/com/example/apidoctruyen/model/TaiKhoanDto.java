@@ -22,6 +22,9 @@ public class TaiKhoanDto {
     private String hoten;
     private String dienthoai;
     private Integer diemthuong;
+
+    private Integer loaitaikhoan;
+
     private Integer loaitk;
 
 
@@ -32,4 +35,5 @@ public class TaiKhoanDto {
         this.dienthoai = dienthoai;
         this.diemthuong = diemthuong;
     }
+
 }
