@@ -5,11 +5,11 @@ server:
 spring:
   datasource:
 
-    url: jdbc:sqlserver://localhost:1433;database=XemTruyen
+    url: jdbc:sqlserver://BUIQUANGTHIEN:1433;database=XemTruyen
 
     driverClassName: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     username: sa
-    password: 1510
+    password: 123456
   jpa:
     hibernate:
       ddl-auto: update

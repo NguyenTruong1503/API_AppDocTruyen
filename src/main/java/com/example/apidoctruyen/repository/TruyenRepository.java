@@ -122,7 +122,7 @@ public interface truyenRepository extends JpaRepository<Truyen, Integer> {
             "WHERE LOWER(t.key_search) LIKE LOWER(CONCAT('%', :textsearch, '%')) \n" +
             "GROUP BY t.id, tk.tongluotxem, c.id, tk.sosaotb, t.tentruyen, t.theloai, t.linkanh \n" +
             "ORDER BY tk.tongluotxem DESC")
-    List<TimkiemModel> getListTimKiem(String textsearch);
+    ArrayList<TimkiemModel> getListTimKiem(String textsearch);
 
     @Query("SELECT t.id, tk.tongluotxem, COUNT(c.id), tk.sosaotb, t.tentruyen, t.theloai, t.linkanh \n" +
             "FROM Truyen t \n" +
