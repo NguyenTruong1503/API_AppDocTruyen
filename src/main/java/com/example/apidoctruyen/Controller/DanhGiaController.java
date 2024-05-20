@@ -1,6 +1,8 @@
 package com.example.apidoctruyen.Controller;
 
+
 import com.example.apidoctruyen.entity.Chapter;
+
 import com.example.apidoctruyen.entity.Danhgia;
 import com.example.apidoctruyen.model.TruyenDto;
 import com.example.apidoctruyen.repository.BinhLuanRepository;
@@ -25,6 +27,7 @@ public class DanhGiaController {
         Double danhgia = repo.getAverageRatingByTruyenId(id);
         return danhgia;
     }
+
     @GetMapping("/truyen/gettbdanhgiatheochapter/{id}")
     public Double gettbdanhgiatheochapter(@PathVariable int id) {
         Double danhgia = repo.getAverageRatingByIdChapter(id);
@@ -34,21 +37,14 @@ public class DanhGiaController {
     public List<Integer> getIDByChapterAndTK(@PathVariable int idchapter, @PathVariable int idtaikhoan){
         return repo.getIDByChapterAndTK(idchapter, idtaikhoan);
     }
-    @PutMapping("/updatedanhgia/{idchapter}/{idtaikhoan}/{sosao}")
-    public ResponseEntity<String> updateDanhGia(
-            @PathVariable int idchapter,
-            @PathVariable int idtaikhoan,
-            @PathVariable double sosao) {
+    
+    @PutMapping ("/danhgia/{idchapter}/{idtaikhoan}/{sosao}")
+    public void updateDanhGia(@PathVariable Integer idchapter, @PathVariable Integer idtaikhoan, @PathVariable Double sosao){
+        Danhgia danhgia = repo.findByIdchapterAndIdtaikhoan(idchapter, idtaikhoan);
+        if (danhgia != null) {
+            danhgia.setSosao(sosao);
+            repo.save(danhgia);
 
-        Optional<Danhgia> optionalDanhGia = repo.findByIdChapterAndIdTaiKhoan(idchapter, idtaikhoan);
-
-        if (optionalDanhGia.isPresent()) {
-            Danhgia danhGia = optionalDanhGia.get();
-            danhGia.setSosao(sosao);
-            repo.save(danhGia);
-            return ResponseEntity.ok("Update successful");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("DanhGia not found");
         }
     }
 }

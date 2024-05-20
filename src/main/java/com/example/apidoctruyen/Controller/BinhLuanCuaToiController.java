@@ -17,7 +17,7 @@ public class BinhLuanCuaToiController {
     BinhLuanCuaToiRepository binhLuanCuaToiRepository;
 
     @GetMapping("/binhluancuatoi/{id}")
-    public List<BinhLuanCuaToi> findByEmail(@PathVariable Integer id){
-        return binhLuanCuaToiRepository.findByEmail(id);
+    public List<BinhLuanCuaToi> findByIdn(@PathVariable Integer id){
+        return binhLuanCuaToiRepository.findByIdn(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.apidoctruyen.Controller;
 
 import com.example.apidoctruyen.entity.Chapter;
+import com.example.apidoctruyen.entity.Taikhoan;
 import com.example.apidoctruyen.entity.Truyen;
 
 import com.example.apidoctruyen.model.ChapterDto;
@@ -17,6 +18,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -99,7 +101,7 @@ public class truyenController {
     }
 
     @GetMapping("/search")
-    public List<TimkiemModel> findTruyenBySearchText(@RequestParam("textsearch") String textsearch){
+    public ArrayList<TimkiemModel> findTruyenBySearchText(@RequestParam("textsearch") String textsearch){
         return repo.getListTimKiem(textsearch);
     }
 
@@ -133,5 +135,4 @@ public class truyenController {
         truyen1.setKey_search(truyen.getKey_search());
         return repo.save(truyen1);
     }
-
 }
