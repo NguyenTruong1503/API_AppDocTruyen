@@ -36,7 +36,7 @@ public class TaiKhoanController {
         return taiKhoanRepository.findByLoaiTk();
     }
 
-    // lay taikhoan theo email
+
 
     // cap nhat loaitk kiểu int theo id
     @PutMapping ("/taikhoan/{id}/{loaitk}")

@@ -21,8 +21,16 @@ public interface DanhGiaRepository extends JpaRepository<Danhgia, Integer> {
     @Modifying
     @Query("UPDATE Danhgia d SET d.sosao = :sosao WHERE d.idchapter = :idchapter AND d.idtaikhoan = :idtaikhoan")
     int updateDanhGia(@Param("idchapter") int idchapter, @Param("idtaikhoan") int idtaikhoan, @Param("sosao") double sosao);
+
     @Query("SELECT round(avg(d.sosao), 2) FROM Danhgia d WHERE d.idchapter.id = :id")
     Double getAverageRatingByIdChapter(@Param("id") int id);
+
+    @Query("SELECT round(avg(d.sosao), 2) FROM Danhgia d WHERE d.idchapter.id = : idchapter")
+    Double getAverageRatingByIdChapter(Integer idchapter);
+    //Optional<Danhgia> findByIdChapterAndIdTaiKhoan(Integer idChapter, Integer idTaiKhoan);
+
+
+
     // updateDanhGia
     @Query("UPDATE Danhgia d SET d.sosao = :sosao WHERE d.idchapter.id = :idchapter AND d.idtaikhoan.id = :idtaikhoan")
     void updateDanhGia(Integer idchapter, Integer idtaikhoan, Integer sosao);
