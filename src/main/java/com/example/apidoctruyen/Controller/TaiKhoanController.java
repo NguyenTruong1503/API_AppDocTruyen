@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -18,8 +19,13 @@ public class TaiKhoanController {
 
 
 
-    @GetMapping("/taikhoan/{email}")
-    public Optional<TaiKhoanDto> findByEmail(@PathVariable String email){
-        return taiKhoanRepository.findByEmail(email);
+    @GetMapping("/timtaikhoan/{email}")
+    public List<TaiKhoanDto> getTaiKhoanByEmail(@PathVariable String email) {
+        return taiKhoanRepository.getByEmail(email);
     }
+    @GetMapping("/findidtaikhoan/{email}")
+    public int findIDTaiKhoanByEmail(@PathVariable String email){
+        return taiKhoanRepository.findIDTaiKhoanByEmail(email);
+    }
+
 }
